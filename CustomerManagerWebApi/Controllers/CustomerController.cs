@@ -22,5 +22,16 @@ namespace CustomerManagerWebApi.Controllers
             var result = await _mediator.Send(new GetCustomersQuery());
             return Ok(result);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Get(long id)
+        {
+            var query = new GetCustomerByIdQuery()
+            {
+                CustomerId = id
+            };
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
     }
 }
