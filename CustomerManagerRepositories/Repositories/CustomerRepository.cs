@@ -23,5 +23,10 @@ namespace CustomerManagerRepositories.Repositories
             var currentCustomer = await _dbContext.Customers.FirstOrDefaultAsync(customer => customer.Id == id);
             return currentCustomer ?? throw new BusinessRuleException("The customer with the given id does not exist");
         }
+        public async Task Create(Customer customer, CancellationToken cancellationToken)
+        {
+            _dbContext.Customers.Add(customer);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

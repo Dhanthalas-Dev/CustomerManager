@@ -1,4 +1,5 @@
-﻿using CustomerManagerApplication.IO.Queries;
+﻿using CustomerManagerApplication.IO.Commands;
+using CustomerManagerApplication.IO.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,6 +32,13 @@ namespace CustomerManagerWebApi.Controllers
                 CustomerId = id
             };
             var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(NewCustomerCommand command)
+        {
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
     }

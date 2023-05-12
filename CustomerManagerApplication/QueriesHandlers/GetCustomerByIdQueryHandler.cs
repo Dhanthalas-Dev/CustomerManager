@@ -4,7 +4,7 @@ using CustomerManagerApplication.Utils;
 using CustomerManagerRepositories.Repositories;
 using MediatR;
 
-namespace CustomerManagerApplication.QueriesHandler
+namespace CustomerManagerApplication.QueriesHandlers
 {
     public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, CustomerDTO>
     {
