@@ -1,4 +1,4 @@
-﻿namespace CustomerManagerDomain
+﻿namespace CustomerManagerDomain.Enums
 {
     public enum GenderEnum
     {

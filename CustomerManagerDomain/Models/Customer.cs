@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using CustomerManagerDomain.Enums;
 
-namespace CustomerManagerDomain
+namespace CustomerManagerDomain.Models
 {
     public class Customer
     {
