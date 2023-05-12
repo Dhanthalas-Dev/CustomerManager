@@ -38,7 +38,7 @@ Customer:
    Before execite the application, the migrations to create the tables on DB must be executed.
    To do this, open a console and go to your startUp project folder and execute this command:
    
-      ```dotnet ef database update```
+      dotnet ef database update
 	  
 	* The entityframework tools need to be installed.
 	
