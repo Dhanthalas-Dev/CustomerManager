@@ -7,19 +7,20 @@ using MediatR;
 
 namespace CustomerManagerApplication.CommandsHandlers
 {
-    public  class NewCustomerCommandHandler : IRequestHandler<NewCustomerCommand, CustomerDTO>
+    public  class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, CustomerDTO>
     {
         private readonly ICustomerRepository _repository;
 
-        public NewCustomerCommandHandler(ICustomerRepository repository)
+        public UpdateCustomerCommandHandler(ICustomerRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<CustomerDTO> Handle(NewCustomerCommand command, CancellationToken cancellationToken)
+        public async Task<CustomerDTO> Handle(UpdateCustomerCommand command, CancellationToken cancellationToken)
         {
             var customer = new Customer
             {
+                Id = command.Id,
                 Name = command.Name,
                 LastName = command.LastName,
                 Gender = command.Gender,
@@ -30,9 +31,9 @@ namespace CustomerManagerApplication.CommandsHandlers
                 Email = command.Email,
             };
 
-            await _repository.Create(customer, cancellationToken);
+            await _repository.Update(customer, cancellationToken);
 
-            return Mapper.CustomerToCustomerDTO(customer);
+            return Mapper.CustomerToCustomerDTO(customer); ;
         }
     }
 }

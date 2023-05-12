@@ -28,5 +28,23 @@ namespace CustomerManagerRepositories.Repositories
             _dbContext.Customers.Add(customer);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task Update(Customer customer, CancellationToken none)
+        {
+            var currentCustomer = await _dbContext.Customers.FindAsync(customer.Id);
+
+            if (currentCustomer != null)
+            {
+                currentCustomer.Name = customer.Name;
+                currentCustomer.LastName = customer.LastName;
+                currentCustomer.Gender = customer.Gender;
+                currentCustomer.BirthDate = customer.BirthDate;
+                currentCustomer.Address = customer.Address;
+                currentCustomer.Country = customer.Country;
+                currentCustomer.PostalCode = customer.PostalCode;
+                currentCustomer.Email = customer.Email;
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }

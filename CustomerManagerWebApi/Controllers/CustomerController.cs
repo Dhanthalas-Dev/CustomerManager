@@ -41,5 +41,12 @@ namespace CustomerManagerWebApi.Controllers
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateCustomerCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
     }
 }
