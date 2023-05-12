@@ -1,7 +1,6 @@
 ﻿namespace CustomerManagerApplication
 {
-    public class Class1
+    public interface IAmApplication
     {
-
     }
 }
