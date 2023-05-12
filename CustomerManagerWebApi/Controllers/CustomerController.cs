@@ -48,5 +48,15 @@ namespace CustomerManagerWebApi.Controllers
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(long id)
+        {
+            await _mediator.Send(new DeleteCustomerCommand
+            {
+                Id = id
+            });
+            return Ok();
+        }
     }
 }

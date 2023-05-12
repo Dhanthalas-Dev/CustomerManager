@@ -46,5 +46,18 @@ namespace CustomerManagerRepositories.Repositories
                 _dbContext.SaveChanges();
             }
         }
+
+        public async Task Delete(long customerId, CancellationToken none)
+        {
+            var currentCustomer = await _dbContext.Customers.FindAsync(customerId);
+
+            if (currentCustomer != null)
+            {
+                _dbContext.Customers.Remove(currentCustomer);
+                _dbContext.SaveChanges();
+            }
+            else
+                throw new BusinessRuleException("The customer with the given id does not exist");
+        }
     }
 }
