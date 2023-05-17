@@ -18,7 +18,6 @@ namespace CustomerManagerApplication.IO.Commands
         public int PostalCode { get; set; }
         public string Email { get; set; }
 
-        [JsonIgnore]
         public IValidator<UpdateCustomerCommand> Validator => new UpdateCustomerCommandValidator();
         public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
         {

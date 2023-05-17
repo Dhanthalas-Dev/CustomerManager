@@ -9,7 +9,6 @@ namespace CustomerManagerApplication.IO.Commands
     {
         public long Id { get; set; }
 
-        [JsonIgnore]
         public IValidator<DeleteCustomerCommand> Validator => new DeleteCustomerCommandValidator();
 
         public class DeleteCustomerCommandValidator : AbstractValidator<DeleteCustomerCommand>
