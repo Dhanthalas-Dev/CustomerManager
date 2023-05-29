@@ -14,7 +14,7 @@ namespace CustomerManagerDomain.Models
         [Required]
         public string LastName { get; set; }
         [Required]
-        public GenderEnum Gender { get; set; }
+        public Gender Gender { get; set; }
         [Required]
         public DateTime BirthDate { get; set; }
         [Required]

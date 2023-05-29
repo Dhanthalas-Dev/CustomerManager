@@ -7,7 +7,7 @@ namespace CustomerManagerApplication.IO.DTOs
         public long Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public GenderEnum Gender { get; set; }
+        public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public string Address { get; set; }
         public string Country { get; set; }
